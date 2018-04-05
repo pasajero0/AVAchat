@@ -16,7 +16,7 @@ http.listen(3000, () => {
 
 io.on('connection', (socket) => {
 	console.log('user connected '+ socket.id);
-
+	
   	socket.on('new user', (data, callback) => {
   		if (nicknames.indexOf(data) != -1) {
   			callback(false);
@@ -38,8 +38,9 @@ io.on('connection', (socket) => {
 	socket.on('chat message', (msg, nick) => {
 	    nick = socket.nickname;
 	    io.emit('chat message', msg , nick);
-	    if (dictionary[msg.trim().toLowerCase()]) {
-	    	io.emit('chat message', dictionary[msg.trim().toLowerCase()] , 'бот Валерий');
+	    const msgTrimAndLowerCase = dictionary[msg.trim().toLowerCase()];
+	    if (msgTrimAndLowerCase) {
+	    	io.emit('chat message', msgTrimAndLowerCase , 'бот Валерий');
 	  	}
 	});
 
