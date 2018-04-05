@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AVAchat</title>
+	<link rel="stylesheet" href="/static/style/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Pacifico|Prata" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+</head>
+<body>
+	<div id="registration-form" class="enter-form">
+		<div class="welcome">
+			<p>Welcome to the <span>AVAchat</span></p>
+			<form id="setNickname">
+				<input id="nickname" autocomplete="off" placeholder="enter your name"/>
+				<br><br>
+				<button type="submit"><i class="material-icons">done</i></button> 
+			</form>
+		</div>
+	</div>
+	<div class="page">
+		<div class="page-head">
+			<div class="page-head__content">
+				<div class="page-head__button"><i id="mobile-sidebar" class="material-icons">menu</i></div>
+				<div class="page-head__logo">AVAchat</div>
+			</div>
+		</div>
+		<div class="main">
+			<div id="mobile-sidebar_drop" class="main__sidebar">
+				<div class="main__section">user1</div>
+				<div class="main__section">user2</div>
+				<div class="main__section">user3</div>
+ 			</div>
+			<div class="main__history">
+				<div id="messages"></div>
+			</div>
+			<form class="main__bottom-textarea">
+				<input id="m" autocomplete="off" placeholder="Write a message..."/><button><i class="material-icons">send</i></button>
+			</form>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.0/socket.io.dev.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="/static/js/script.js"></script>
+</body>
+</html>

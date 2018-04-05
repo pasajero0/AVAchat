@@ -1,0 +1,314 @@
+/*------------------------------------------------------------------------------------------fonts*/
+@font-face {
+	font-family:ONEDAY;
+	src: url("../fonts/ONEDAY.otf");
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+    url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+    url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+/*------------------------------------------------------------------------------------------scrollbar*/
+::-webkit-scrollbar-track {
+background-color: white;
+}
+
+::-webkit-scrollbar-thumb {
+-webkit-border-radius: 0px;
+border-radius: 0px;
+background-color: #56999f;
+}
+
+::-webkit-scrollbar-thumb:hover{
+background-color:#6dc0c8;
+}
+
+::-webkit-scrollbar{
+width: 4px;
+}
+
+/*------------------------------------------------------------------------------------------animation*/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+/*------------------------------------------------------------------------------------------body*/
+body{
+	background-color: #e7ebf0;
+	margin: 0;
+}
+/*------------------------------------------------------------------------------------------enter-form*/
+.enter-form{
+	display: flex;
+	position: fixed;
+ 	z-index: 2;
+ 	object-fit: contain;
+ 	flex-direction: column;
+ 	justify-content: center;
+ 	align-items: center;
+ 	width: 100%; 
+    height: 100%;
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    transition: .5s all;
+    opacity: 1;
+    visibility: visible;
+}
+.welcome{
+	animation: fadeIn 2s;
+}
+.enter-form p{
+	text-align: center;
+	font-family: 'Prata', serif;
+	font-size: 30px;
+}
+.enter-form p span{
+	font-family: 'ONEDAY', sans-serif;
+	font-size: 30px;
+	font-weight: bold;
+}
+.enter-form input {
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+	border: 0;
+    border-bottom: 2px solid #e3e3e3;
+    resize: none;
+    outline: none;
+    font-family: 'Prata', serif;
+    font-size: 16px;
+    padding: 5px;
+    width: 300px;
+    margin-bottom: 20px;
+}
+.enter-form input:focus {
+	border-bottom: 2px solid #5682a3;
+	transition: .3s;
+}
+.enter-form button {
+	display: block;
+	margin: 0 auto;
+	border: 0;
+	color: lightgray;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+.enter-form button i {
+	font-size: 70px;
+	border: 2px solid lightgray;
+	border-radius: 50%;
+	transition: .3s;
+}
+.enter-form button:hover i {
+	border: 2px solid #5682a3;
+    color: #5682a3;
+	transition: .3s;
+	transform: scale(1.1);
+}
+/*------------------------------------------------------------------------------------------main-page*/
+.page{
+	width: 100%;
+	max-width: 1250px;
+	margin: 0 auto;
+	font-family: 'Prata', serif;
+	overflow: hidden;
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+	border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.page-head{
+	display: block;
+    background-color: #5682a3;
+}
+.page-head__content{
+	display: inline-flex;
+    color: white;
+    padding: 17px 20px 15px 22px;
+}
+.page-head__logo{
+	font-family: 'ONEDAY', sans-serif;
+	margin-left: 40px;
+    font-size: 25px;
+}
+.page-head__button{
+	width: 30px;
+    height: 30px;
+}
+.page-head__button i{
+	display: none;
+	font-size: 30px;
+}
+.main{
+	display: grid;
+	grid-template-areas: 
+	    "sidebar history"
+	    "sidebar textarea";
+	grid-auto-columns: 31% 1fr;
+	grid-template-rows: 1fr 100px;
+	grid-gap: 1px;
+	background-color: white;
+	width: 100%;
+    overflow: hidden;
+    height: 90vh;
+}
+.main__sidebar{
+	grid-area: sidebar;
+	background-color: white;
+	border-right: 2px solid #e7ebf1;
+	overflow-y: auto;
+	height: 90vh;
+}
+/*------------------------------------------------------------------------------------------screen*/
+@media (min-width: 1000px){
+	.main__sidebar{
+		display: block !important;
+	}
+}
+@media (max-width: 1000px){
+	.page-head__button_pushed{
+		box-shadow: inset 0 0 22px rgba(0,0,0,0.2), inset 0 3px 0 rgba(0,0,0,0.1), inset 0 0 22px rgba(0,0,0,0.1);
+    	border-radius: 5px;
+	}
+	.page-head__button i{
+		display: block;
+		font-size: 30px;
+		cursor: pointer;
+	}
+	.main{
+		grid-template-areas: 
+		    "history"
+		    "textarea";
+		grid-auto-columns: 1fr;
+		grid-template-rows: 1fr 90px;
+		height: 93vh;
+	}
+	.main__sidebar{
+		display: none;
+		position: absolute;
+		width: 50%;
+		height: 93vh;
+	}
+	.main__sidebar_visibility{
+		display: block;
+	}
+	@media (max-width: 600px){
+		.enter-form p{
+			font-size: 23px;
+		}
+		.enter-form p span{
+			font-size: 23px;
+		}
+		.main__sidebar{
+			width: 99%;
+		}
+	}	
+}
+/*------------------------------------------------------------------------------------------*/
+.main__section, .main__history div{
+	padding: 10px 20px 10px 20px;
+}
+.main__section{
+	border-bottom: 1px solid #e7ebf1;
+	font-size: 18px;
+	transition: .2s;
+}
+.main__sidebar div:hover{
+	background-color: #f0fbff;
+	cursor: pointer;
+	transition: .2s;
+}
+.main__history{
+	grid-area: history;
+	content: 'choose a section';
+	max-height: 80vh;
+	/*background-color: #fff6f4;*/
+	background-color: #fff;
+	overflow-y: auto;
+}
+.main__bottom-textarea {
+	display: flex;
+	grid-area: textarea;
+	padding: 1% 20px 1% 20px;
+	height: 65px;
+}
+.main__bottom-textarea input {
+	border: 0;
+    border-bottom: 2px solid #e3e3e3;
+    resize: none;
+    outline: none;
+    font-family: 'Prata', serif;
+    font-size: 16px;
+    padding: 10px;
+    width: 90%;
+    min-height: 40px;
+    transition: .3s;
+}
+.main__bottom-textarea input:focus {
+	border-bottom: 2px solid #5682a3;
+	transition: .3s;
+}
+.main__bottom-textarea button {
+    border: 0;
+    outline: none;
+    background: none;
+    color: #5682a3;
+    margin-left: 3%;
+    cursor: pointer;
+}
+.main__bottom-textarea button i {
+	transition: .3s;
+}
+.main__bottom-textarea button:hover i {
+	transform: scale(1.1);
+	opacity: .85;
+	transition: .3s;
+}
+.main__bottom-textarea button i {
+    font-size: 35px;
+}
+.active {
+	color: white;
+    background-color: #00c0ff !important;
+}
