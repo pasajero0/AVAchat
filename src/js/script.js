@@ -58,7 +58,6 @@ socket.on('chat message', (msg, nick) => {
 		$('#messages').append('<p>New user connected!</p');
 	}else{
   		$('#messages').append('<p><strong>'+nick+':</strong> '+msg+'</p');
-  		console.log(msg);
 	}
 });
 
